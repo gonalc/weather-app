@@ -6,6 +6,9 @@ It prefills the data with your current location.
 
 Shows the current weather and basic weather for the next 7 days. It also shows basuc weather for the last 5 days.
 
+### API used for the weather data:
+[Open Weather Map](https://openweathermap.org/)
+
 ## Project setup
 ```
 npm install
