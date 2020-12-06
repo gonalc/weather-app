@@ -72,6 +72,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+@import "public/styles/variables";
 @import "public/styles/css3-mixins";
 
 .simple-card {
@@ -94,6 +95,11 @@ export default defineComponent({
   }
   .range-temp {
     margin: 0;
+  }
+  @media screen and (max-width: $break-mobile) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
   }
 }
 </style>
