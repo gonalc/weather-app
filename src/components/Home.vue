@@ -165,7 +165,10 @@ export default defineComponent({
           this.loading = false;
         }
       },
-      (error) => console.error("Error getting geolocation: ", error)
+      (error) => {
+        console.error("Error getting geolocation: ", error);
+        this.loading = false;
+      }
     );
   },
 });
