@@ -94,8 +94,6 @@ export default defineComponent({
         this.futureWeather = result.data.daily;
       } catch (err) {
         console.error("Error getting future data: ", err);
-      } finally {
-        console.log("API Call has finished");
       }
     },
     async getPastWeather(lat: number, lon: number, time: string) {
@@ -111,8 +109,6 @@ export default defineComponent({
         this.pastWeather = provWeather;
       } catch (err) {
         console.error("Error getting past weather: ", err);
-      } finally {
-        console.log("Finished past API Call");
       }
     },
     async getMoreWeather(lat: number, lon: number) {
@@ -138,10 +134,7 @@ export default defineComponent({
           this.getMoreWeather(lat, lon);
         })
         .catch((err) => console.log("Error fetching data: ", err))
-        .finally(() => {
-          console.log("All calls have finished");
-          this.loading = false;
-        });
+        .finally(() => this.loading = false);
     },
   },
   created() {
@@ -161,15 +154,10 @@ export default defineComponent({
         } catch (err) {
           console.error("Error getting automatic location: ", err);
         } finally {
-          console.log("Finished api call for auto location");
           this.loading = false;
         }
       },
-      (error) => {
-        console.error("Error getting geolocation: ", error);
-        this.loading = false;
-      }
-    );
+      (error) => this.loading = false);
   },
 });
 </script>
